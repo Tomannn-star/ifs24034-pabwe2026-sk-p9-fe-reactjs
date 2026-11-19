@@ -33,6 +33,7 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) => {
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse space-y-6">
+        <h1 className="sr-only">Memuat Artikel</h1>
         <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-sm w-24" />
         <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-sm w-3/4" />
         <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded-sm w-1/2" />
@@ -50,7 +51,7 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) => {
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center space-y-4">
         <IconAlertCircle className="mx-auto text-red-500" size={56} />
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Artikel Tidak Ditemukan</h2>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Artikel Tidak Ditemukan</h1>
         <p className="text-gray-600 dark:text-gray-400">
           {error || 'Artikel yang Anda cari tidak tersedia atau belum diterbitkan.'}
         </p>

@@ -10,7 +10,7 @@ export const MarkdownViewer = ({ initialValue = '', isDark = false }) => {
       el: containerRef.current,
       viewer: true,
       initialValue,
-      theme: isDark ? 'dark' : undefined,
+      theme: isDark ? 'dark' : 'light',
     })
 
     viewerRef.current = viewer

@@ -18,7 +18,7 @@ export const MarkdownEditor = ({
       initialEditType: 'markdown',
       previewStyle,
       initialValue,
-      theme: isDark ? 'dark' : undefined,
+      theme: isDark ? 'dark' : 'light',
       events: {
         change: () => {
           if (onChange) {
