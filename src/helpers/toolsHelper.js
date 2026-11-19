@@ -16,7 +16,7 @@ export const showError = (title, text = '') => {
     title,
     text,
     confirmButtonText: 'Tutup',
-    confirmButtonColor: '#ef4444',
+    confirmButtonColor: '#b91c1c',
   })
 }
 
@@ -31,8 +31,8 @@ export const showConfirm = async (
     text,
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3b82f6',
-    cancelButtonColor: '#6b7280',
+    confirmButtonColor: '#1d4ed8',
+    cancelButtonColor: '#4b5563',
     confirmButtonText,
     cancelButtonText,
   })
