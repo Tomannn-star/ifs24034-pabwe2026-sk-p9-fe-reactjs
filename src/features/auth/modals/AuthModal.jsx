@@ -162,7 +162,6 @@ export const AuthModal = ({ isOpen, onClose, onSuccess }) => {
             id="login-submit"
             type="submit"
             disabled={loading}
-            aria-label={isRegister ? 'Daftar Sekarang' : 'Masuk Akun'}
             className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200 shadow-md cursor-pointer disabled:opacity-50"
           >
             {loading ? 'Memproses...' : isRegister ? 'Daftar Sekarang' : 'Masuk Akun'}
@@ -172,7 +171,6 @@ export const AuthModal = ({ isOpen, onClose, onSuccess }) => {
             <button
               type="button"
               onClick={() => setIsRegister(!isRegister)}
-              aria-label="Beralih mode masuk atau daftar akun"
               className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
             >
               {isRegister

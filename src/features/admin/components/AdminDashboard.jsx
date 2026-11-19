@@ -75,7 +75,6 @@ export const AdminDashboard = () => {
         <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
           <button
             onClick={() => setActiveTab('users')}
-            aria-label={`Daftar Pengguna (${users.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'users'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
@@ -87,7 +86,6 @@ export const AdminDashboard = () => {
           </button>
           <button
             onClick={() => setActiveTab('posts')}
-            aria-label={`Arsip Seluruh Artikel (${posts.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'posts'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
@@ -146,7 +144,6 @@ export const AdminDashboard = () => {
                     <td className="py-4 px-6 text-right">
                       <button
                         onClick={() => handleInspectUserPosts(u)}
-                        aria-label={`Lihat artikel pengguna ${u.username}`}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-200 transition cursor-pointer"
                       >
                         <IconEye size={14} />
@@ -275,7 +272,6 @@ export const AdminDashboard = () => {
             <div className="bg-gray-50 dark:bg-gray-750 px-6 py-3 border-t border-gray-100 dark:border-gray-700 text-right shrink-0">
               <button
                 onClick={() => setInspectedUser(null)}
-                aria-label="Tutup jendela inspeksi artikel"
                 className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-300 transition cursor-pointer"
               >
                 Tutup

@@ -164,7 +164,6 @@ export const AuthPage = ({ onLoginSuccess, onNavigateHome }) => {
               id="login-submit"
               type="submit"
               disabled={loading}
-              aria-label={isRegister ? 'Daftar Sekarang' : 'Masuk Akun'}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 cursor-pointer disabled:opacity-50"
             >
               {loading ? 'Memproses...' : isRegister ? 'Daftar Sekarang' : 'Masuk Akun'}
@@ -175,7 +174,6 @@ export const AuthPage = ({ onLoginSuccess, onNavigateHome }) => {
             <button
               type="button"
               onClick={() => setIsRegister(!isRegister)}
-              aria-label="Beralih mode masuk atau daftar akun"
               className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
             >
               {isRegister

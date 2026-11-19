@@ -205,12 +205,7 @@
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,7 +251,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -291,7 +285,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -305,10 +298,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -366,7 +356,6 @@ export const StickyNavbar = ({
         &lt;div className="flex items-center gap-6"&gt;
           &lt;button
             onClick={() =&gt; onNavigate('/')}
-            aria-label="Beranda Delcom Blog"
             className="flex items-center gap-2 group cursor-pointer text-left"
           &gt;
             &lt;div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black shadow-md shadow-blue-500/30 group-hover:scale-105 transition"&gt;
@@ -374,7 +363,7 @@ export const StickyNavbar = ({
             &lt;/div&gt;
             &lt;div&gt;
               &lt;span className="font-extrabold text-lg text-gray-900 dark:text-white tracking-tight"&gt;
-                Delcom&lt;span className="text-blue-600"&gt;Blog&lt;/span&gt;
+                Delcom&lt;span className="text-blue-600 dark:text-blue-400"&gt;Blog&lt;/span&gt;
               &lt;/span&gt;
               &lt;span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800"&gt;
                 AI Powered
@@ -419,7 +408,6 @@ export const StickyNavbar = ({
               {currentPath !== '/' &amp;&amp; (
                 &lt;button
                   onClick={() =&gt; onNavigate('/')}
-                  aria-label="Menuju beranda"
                   className="hidden sm:inline-flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer"
                 &gt;
                   Beranda
@@ -429,7 +417,6 @@ export const StickyNavbar = ({
               {user.role === 'admin' &amp;&amp; (
                 &lt;button
                   onClick={() =&gt; onNavigate('/admin')}
-                  aria-label="Buka panel administrasi"
                   className={`inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg transition cursor-pointer ${
                     currentPath === '/admin'
                       ? 'bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800'
@@ -443,7 +430,6 @@ export const StickyNavbar = ({
 &nbsp;
               &lt;button
                 onClick={() =&gt; onNavigate('/author')}
-                aria-label="Buka ruang kerja penulis"
                 className={`inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg transition cursor-pointer ${
                   currentPath === '/author'
                     ? 'bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800'
@@ -467,7 +453,6 @@ export const StickyNavbar = ({
             &lt;div className="flex items-center gap-2"&gt;
               &lt;button
                 onClick={onOpenLogin}
-                aria-label="Buka form masuk akun"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-xl shadow-sm shadow-blue-500/20 transition cursor-pointer"
               &gt;
                 &lt;IconLogin size={18} /&gt;
@@ -489,7 +474,7 @@ export default StickyNavbar
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-11-19T04:30:51.657Z
+                at 2026-11-19T04:54:33.039Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

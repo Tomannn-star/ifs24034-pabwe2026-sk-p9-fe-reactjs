@@ -130,7 +130,6 @@ export const AuthorDashboard = ({ isDark = false }) => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsAiModalOpen(true)}
-            aria-label="Buka AI Blog Generator"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-semibold text-sm hover:bg-indigo-100 transition shadow-xs cursor-pointer"
           >
             <IconSparkles size={18} />
@@ -139,7 +138,6 @@ export const AuthorDashboard = ({ isDark = false }) => {
 
           <button
             onClick={handleOpenNew}
-            aria-label="Tulis Artikel Baru"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-500/20 transition cursor-pointer"
           >
             <IconPlus size={18} />
@@ -257,7 +255,6 @@ export const AuthorDashboard = ({ isDark = false }) => {
                         <div className="absolute right-6 mt-1 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 py-1.5 z-20">
                           <button
                             onClick={() => handleOpenEdit(post)}
-                            aria-label={`Edit artikel ${post.title}`}
                             className="w-full px-4 py-2 text-left text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
                           >
                             <IconEdit size={16} className="text-blue-600" />
@@ -265,7 +262,6 @@ export const AuthorDashboard = ({ isDark = false }) => {
                           </button>
                           <button
                             onClick={() => handleDeletePost(post)}
-                            aria-label={`Hapus artikel ${post.title}`}
                             className="w-full px-4 py-2 text-left text-xs font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 flex items-center gap-2 cursor-pointer"
                           >
                             <IconTrash size={16} />

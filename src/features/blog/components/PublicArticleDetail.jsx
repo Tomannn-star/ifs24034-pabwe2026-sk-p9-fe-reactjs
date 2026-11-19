@@ -71,7 +71,6 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) => {
       <div>
         <button
           onClick={onBack}
-          aria-label="Kembali ke Jelajah Artikel"
           className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 transition cursor-pointer"
         >
           <IconArrowLeft size={18} /> Kembali ke Jelajah Artikel

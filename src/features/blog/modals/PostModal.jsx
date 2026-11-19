@@ -220,7 +220,6 @@ export const PostModal = ({
           <button
             type="button"
             onClick={onClose}
-            aria-label="Batal dan tutup editor"
             className="px-5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium text-sm transition cursor-pointer"
           >
             Batal
@@ -228,7 +227,6 @@ export const PostModal = ({
           <button
             type="submit"
             disabled={loading}
-            aria-label={initialData?.id ? 'Perbarui Artikel' : 'Simpan Artikel'}
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm shadow-md shadow-blue-500/20 transition cursor-pointer disabled:opacity-50"
           >
             <IconDeviceFloppy size={18} />

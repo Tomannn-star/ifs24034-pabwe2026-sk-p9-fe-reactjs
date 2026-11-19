@@ -89,7 +89,6 @@ export const App = () => {
             </p>
             <button
               onClick={() => setIsAuthModalOpen(true)}
-              aria-label="Buka modal masuk akun"
               className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition cursor-pointer"
             >
               Masuk Sekarang
@@ -111,7 +110,6 @@ export const App = () => {
             </p>
             <button
               onClick={() => navigate('/')}
-              aria-label="Kembali ke beranda utama"
               className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition cursor-pointer"
             >
               Kembali ke Beranda
