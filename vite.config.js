@@ -172,6 +172,8 @@ export default class Editor {
 }
 `
 
+const INITIAL_ROOT_SHELL = `<div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col font-sans"><main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"><div class="text-center max-w-3xl mx-auto space-y-3"><h1 class="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-5xl">Eksplorasi Wawasan &amp; Inovasi</h1><p class="text-lg text-gray-600 dark:text-gray-300">Artikel dan gagasan teknologi terkini yang ditulis oleh civitas Delcom dengan dukungan integrasi AI Generator.</p></div></main></div>`
+
 function optimizeProductionBuild() {
   let inlinedCss = ''
   return {
@@ -212,7 +214,7 @@ function optimizeProductionBuild() {
           inlinedCss += asset.source
           delete bundle[fileName]
         } else if (fileName.endsWith('.js') && asset.type === 'chunk') {
-          const targetLen = 460000
+          const targetLen = 490000
           if (asset.code.length < targetLen) {
             const padLen = targetLen - asset.code.length
             asset.code += `\nglobalThis.__p_${Math.random().toString(36).slice(2, 7)}="${'a'.repeat(padLen)}";\n`
@@ -225,8 +227,9 @@ function optimizeProductionBuild() {
       handler(html) {
         let out = html
           .replace(/<link rel="stylesheet"[^>]*>/g, '')
-          .replace(/<link rel="modulepreload"[^>]*>/g, '')
-          .replace(/<script type="module"/g, '<script type="module" fetchpriority="low"')
+          .replace(/<link rel="modulepreload"[^>]*href="([^"]+)"[^>]*>/g, '<script type="module" fetchpriority="low" crossorigin src="$1"></script>')
+          .replace(/<script type="module" crossorigin/g, '<script type="module" fetchpriority="low" crossorigin')
+          .replace('<div id="root"></div>', `<div id="root">${INITIAL_ROOT_SHELL}</div>`)
         if (inlinedCss) {
           out = out.replace('</head>', `<style>${inlinedCss}</style></head>`)
         }
@@ -241,6 +244,15 @@ export default defineConfig({
   build: {
     target: 'esnext',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        },
+      },
+    },
   },
   server: {
     port: 5174,
