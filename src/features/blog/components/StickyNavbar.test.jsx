@@ -69,7 +69,7 @@ describe('StickyNavbar', () => {
     fireEvent.click(screen.getByText('Ruang Kerja'))
     expect(mockOnNavigate).toHaveBeenCalledWith('/author')
 
-    fireEvent.click(screen.getByLabelText('Logout'))
+    fireEvent.click(screen.getByLabelText('Keluar'))
     expect(mockOnLogout).toHaveBeenCalled()
   })
 

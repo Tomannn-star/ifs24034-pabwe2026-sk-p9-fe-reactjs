@@ -101,7 +101,7 @@ export const AdminDashboard = () => {
       {/* Content Section */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-gray-500 animate-pulse">Memuat data sistem...</div>
+          <div className="p-12 text-center text-gray-500 dark:text-gray-400 animate-pulse">Memuat data sistem...</div>
         ) : activeTab === 'users' ? (
           /* Users Table */
           <div className="overflow-x-auto">
@@ -234,7 +234,7 @@ export const AdminDashboard = () => {
 
             <div className="p-6 overflow-y-auto flex-1">
               {loadingUserPosts ? (
-                <div className="text-center py-8 text-gray-500 animate-pulse">Memuat artikel...</div>
+                <div className="text-center py-8 text-gray-500 dark:text-gray-400 animate-pulse">Memuat artikel...</div>
               ) : userPosts.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
                   <IconFolder size={36} className="mx-auto mb-2 text-gray-400" />

@@ -104,8 +104,8 @@ export const StickyNavbar = ({
 
               <button
                 onClick={onLogout}
-                aria-label="Logout"
-                className="inline-flex items-center gap-1 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50 px-3 py-1.5 rounded-lg transition cursor-pointer"
+                aria-label="Keluar"
+                className="inline-flex items-center gap-1 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 px-3 py-1.5 rounded-lg transition cursor-pointer"
               >
                 <IconLogout size={18} />
                 <span className="hidden md:inline">Keluar</span>

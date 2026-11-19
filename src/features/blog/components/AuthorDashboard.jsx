@@ -172,7 +172,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
         {/* Table */}
         <div className="overflow-x-auto">
           {loading ? (
-            <div className="p-8 text-center text-gray-500 animate-pulse">Memuat data artikel...</div>
+            <div className="p-8 text-center text-gray-500 dark:text-gray-400 animate-pulse">Memuat data artikel...</div>
           ) : filteredPosts.length === 0 ? (
             <div className="py-16 text-center text-gray-500 space-y-2">
               <IconFolder size={40} className="mx-auto text-gray-400 dark:text-gray-600" />
