@@ -47,12 +47,12 @@ export const PostStats = ({ stats, loading = false }) => {
           className={`p-6 rounded-2xl border ${card.bg} shadow-xs flex items-center justify-between transition-transform duration-200 hover:-translate-y-0.5`}
         >
           <div className="space-y-1">
-            <p className="text-xs font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-400">
+            <p className="text-xs font-bold tracking-wider uppercase text-gray-600 dark:text-gray-300">
               {card.title}
             </p>
-            <h3 className={`text-3xl font-extrabold ${card.textColor}`}>
+            <h2 className={`text-3xl font-extrabold ${card.textColor}`}>
               {card.value}
-            </h3>
+            </h2>
           </div>
           <div className="p-3 bg-white dark:bg-gray-800 rounded-xl shadow-xs">
             {card.icon}

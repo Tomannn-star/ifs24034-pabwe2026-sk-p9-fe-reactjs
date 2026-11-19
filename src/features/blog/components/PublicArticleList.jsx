@@ -73,9 +73,9 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
         </div>
       ) : posts.length === 0 ? (
         <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700">
-          <IconFolder className="mx-auto text-gray-400 mb-3" size={48} />
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">Tidak ada artikel ditemukan</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+          <IconFolder className="mx-auto text-gray-500 mb-3" size={48} />
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white">Tidak ada artikel ditemukan</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Coba ubah kata kunci pencarian atau pilih kategori yang berbeda.
           </p>
         </div>
@@ -92,7 +92,7 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
                 {post.cover_image_path ? (
                   <img
                     src={post.cover_image_path}
-                    alt={post.title}
+                    alt={`Sampul artikel ${post.title}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                 ) : (
@@ -100,7 +100,7 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
                     {post.title}
                   </div>
                 )}
-                <span className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-xs text-white text-xs font-semibold rounded-full">
+                <span className="absolute top-3 left-3 px-3 py-1 bg-black/70 backdrop-blur-xs text-white text-xs font-semibold rounded-full">
                   {post.category || 'Umum'}
                 </span>
               </div>
@@ -108,7 +108,7 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
               {/* Content body */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1">
                       <IconClock size={14} />
                       {formatReadingTime(post.reading_time)}
@@ -138,7 +138,7 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
                     <p className="text-xs font-semibold text-gray-900 dark:text-white">
                       {post.author_name || 'Penulis Delcom'}
                     </p>
-                    <p className="text-[11px] text-gray-400">Penulis Kontributor</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400">Penulis Kontributor</p>
                   </div>
                 </div>
               </div>

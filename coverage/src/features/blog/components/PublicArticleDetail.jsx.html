@@ -226,7 +226,9 @@
 <a name='L150'></a><a href='#L150'>150</a>
 <a name='L151'></a><a href='#L151'>151</a>
 <a name='L152'></a><a href='#L152'>152</a>
-<a name='L153'></a><a href='#L153'>153</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,6 +278,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -293,6 +296,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -431,11 +435,12 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
       &lt;div className="max-w-xl mx-auto px-4 py-16 text-center space-y-4"&gt;
         &lt;IconAlertCircle className="mx-auto text-red-500" size={56} /&gt;
         &lt;h2 className="text-2xl font-bold text-gray-900 dark:text-white"&gt;Artikel Tidak Ditemukan&lt;/h2&gt;
-        &lt;p className="text-gray-500 dark:text-gray-400"&gt;
+        &lt;p className="text-gray-600 dark:text-gray-400"&gt;
           {error || 'Artikel yang Anda cari tidak tersedia atau belum diterbitkan.'}
         &lt;/p&gt;
         &lt;button
           onClick={onBack}
+          aria-label="Kembali ke Daftar Artikel"
           className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition cursor-pointer"
         &gt;
           &lt;IconArrowLeft size={18} /&gt; Kembali ke Daftar Artikel
@@ -450,7 +455,8 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
       &lt;div&gt;
         &lt;button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 transition cursor-pointer"
+          aria-label="Kembali ke Jelajah Artikel"
+          className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 transition cursor-pointer"
         &gt;
           &lt;IconArrowLeft size={18} /&gt; Kembali ke Jelajah Artikel
         &lt;/button&gt;
@@ -462,12 +468,12 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
           &lt;span className="px-3.5 py-1 bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded-full text-xs font-bold tracking-wide uppercase"&gt;
             {post.category || 'Umum'}
           &lt;/span&gt;
-          &lt;span className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400"&gt;
+          &lt;span className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400"&gt;
             &lt;IconClock size={14} /&gt;
             {formatReadingTime(post.reading_time)}
           &lt;/span&gt;
-          &lt;span className="text-gray-300 dark:text-gray-700"&gt;•&lt;/span&gt;
-          &lt;span className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400"&gt;
+          &lt;span className="text-gray-400 dark:text-gray-600"&gt;•&lt;/span&gt;
+          &lt;span className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400"&gt;
             &lt;IconCalendar size={14} /&gt;
             {formatDate(post.published_at || post.created_at)}
           &lt;/span&gt;
@@ -478,7 +484,7 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
         &lt;/h1&gt;
 &nbsp;
         {post.excerpt &amp;&amp; (
-          &lt;p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed italic border-l-4 border-blue-500 pl-4 py-1"&gt;
+          &lt;p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed italic border-l-4 border-blue-500 pl-4 py-1"&gt;
             {post.excerpt}
           &lt;/p&gt;
         )}
@@ -492,7 +498,7 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
             &lt;p className="text-sm font-bold text-gray-900 dark:text-white"&gt;
               {post.author_name || 'Penulis Kontributor'}
             &lt;/p&gt;
-            &lt;p className="text-xs text-gray-400"&gt;Civitas Delcom Blog&lt;/p&gt;
+            &lt;p className="text-xs text-gray-500 dark:text-gray-400"&gt;Civitas Delcom Blog&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/header&gt;
@@ -519,8 +525,8 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) =&gt; {
           {post.author_name ? post.author_name[0].toUpperCase() : 'D'}
         &lt;/div&gt;
         &lt;div className="text-center sm:text-left space-y-1"&gt;
-          &lt;h4 className="font-bold text-gray-900 dark:text-white"&gt;Ditulis oleh {post.author_name || 'Penulis Delcom'}&lt;/h4&gt;
-          &lt;p className="text-sm text-gray-500 dark:text-gray-400"&gt;
+          &lt;h2 className="text-base font-bold text-gray-900 dark:text-white"&gt;Ditulis oleh {post.author_name || 'Penulis Delcom'}&lt;/h2&gt;
+          &lt;p className="text-sm text-gray-600 dark:text-gray-400"&gt;
             Terima kasih telah membaca artikel ini. Dibuat dan diterbitkan secara mandiri melalui platform Delcom Blog.
           &lt;/p&gt;
         &lt;/div&gt;
@@ -537,7 +543,7 @@ export default PublicArticleDetail
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-11-19T02:33:12.990Z
+                at 2026-11-19T04:30:51.657Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

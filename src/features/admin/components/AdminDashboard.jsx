@@ -66,7 +66,7 @@ export const AdminDashboard = () => {
               Panel Administrasi Delcom
             </h1>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
             Monitoring menyeluruh aktivitas civitas penulis, naskah blog, dan data akun sistem.
           </p>
         </div>
@@ -75,10 +75,11 @@ export const AdminDashboard = () => {
         <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
           <button
             onClick={() => setActiveTab('users')}
+            aria-label={`Daftar Pengguna (${users.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'users'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900'
             }`}
           >
             <IconUsers size={18} />
@@ -86,10 +87,11 @@ export const AdminDashboard = () => {
           </button>
           <button
             onClick={() => setActiveTab('posts')}
+            aria-label={`Arsip Seluruh Artikel (${posts.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'posts'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900'
             }`}
           >
             <IconFiles size={18} />
@@ -101,19 +103,19 @@ export const AdminDashboard = () => {
       {/* Content Section */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-xs">
         {loading ? (
-          <div className="p-12 text-center text-gray-400 animate-pulse">Memuat data sistem...</div>
+          <div className="p-12 text-center text-gray-500 animate-pulse">Memuat data sistem...</div>
         ) : activeTab === 'users' ? (
           /* Users Table */
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                  <th className="py-3.5 px-6">Pengguna</th>
-                  <th className="py-3.5 px-4">Email</th>
-                  <th className="py-3.5 px-4">Role</th>
-                  <th className="py-3.5 px-4 text-center">Total Artikel</th>
-                  <th className="py-3.5 px-4 text-center">Artikel Terbit</th>
-                  <th className="py-3.5 px-6 text-right">Aksi</th>
+                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                  <th scope="col" className="py-3.5 px-6">Pengguna</th>
+                  <th scope="col" className="py-3.5 px-4">Email</th>
+                  <th scope="col" className="py-3.5 px-4">Role</th>
+                  <th scope="col" className="py-3.5 px-4 text-center">Total Artikel</th>
+                  <th scope="col" className="py-3.5 px-4 text-center">Artikel Terbit</th>
+                  <th scope="col" className="py-3.5 px-6 text-right">Aksi</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm">
@@ -121,9 +123,9 @@ export const AdminDashboard = () => {
                   <tr key={u.id} className="hover:bg-gray-50/70 dark:hover:bg-gray-750 transition">
                     <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                       <div>{u.name || u.username}</div>
-                      <div className="text-xs text-gray-400 font-normal">@{u.username}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 font-normal">@{u.username}</div>
                     </td>
-                    <td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs">{u.email}</td>
+                    <td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs">{u.email}</td>
                     <td className="py-4 px-4">
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-bold ${
@@ -144,6 +146,7 @@ export const AdminDashboard = () => {
                     <td className="py-4 px-6 text-right">
                       <button
                         onClick={() => handleInspectUserPosts(u)}
+                        aria-label={`Lihat artikel pengguna ${u.username}`}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-200 transition cursor-pointer"
                       >
                         <IconEye size={14} />
@@ -160,36 +163,39 @@ export const AdminDashboard = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                  <th className="py-3.5 px-6">Judul Artikel</th>
-                  <th className="py-3.5 px-4">Penulis</th>
-                  <th className="py-3.5 px-4">Kategori</th>
-                  <th className="py-3.5 px-4">Estimasi Baca</th>
-                  <th className="py-3.5 px-4 text-center">Status</th>
-                  <th className="py-3.5 px-6">Tanggal</th>
+                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                  <th scope="col" className="py-3.5 px-6">Artikel</th>
+                  <th scope="col" className="py-3.5 px-4">Penulis</th>
+                  <th scope="col" className="py-3.5 px-4">Kategori</th>
+                  <th scope="col" className="py-3.5 px-4">Waktu Baca</th>
+                  <th scope="col" className="py-3.5 px-4 text-center">Status</th>
+                  <th scope="col" className="py-3.5 px-6">Tanggal Publikasi</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm">
                 {posts.map((p) => (
                   <tr key={p.id} className="hover:bg-gray-50/70 dark:hover:bg-gray-750 transition">
-                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-sm truncate">
-                      <div className="truncate">{p.title}</div>
-                      <div className="text-xs text-gray-400 font-normal truncate">/{p.slug}</div>
+                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-xs truncate">
+                      <div>{p.title}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 font-normal truncate">/{p.slug}</div>
                     </td>
-                    <td className="py-4 px-4 text-xs font-medium text-gray-700 dark:text-gray-300">
-                      {p.author_name || 'Penulis'}
+                    <td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs font-medium">
+                      {p.author_name || 'Admin'}
                     </td>
                     <td className="py-4 px-4">
                       <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
                         {p.category}
                       </span>
                     </td>
-                    <td className="py-4 px-4 text-xs text-gray-600 dark:text-gray-400">
-                      {formatReadingTime(p.reading_time)}
+                    <td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs">
+                      <div className="flex items-center gap-1">
+                        <IconClock size={14} className="text-gray-500" />
+                        {formatReadingTime(p.reading_time)}
+                      </div>
                     </td>
                     <td className="py-4 px-4 text-center">
                       <span
-                        className={`inline-flex px-2.5 py-1 rounded-full text-xs font-bold ${
+                        className={`px-2.5 py-1 rounded-full text-xs font-bold ${
                           p.is_published
                             ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
                             : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
@@ -198,7 +204,7 @@ export const AdminDashboard = () => {
                         {p.is_published ? 'Terbit' : 'Draf'}
                       </span>
                     </td>
-                    <td className="py-4 px-6 text-xs text-gray-500 whitespace-nowrap">
+                    <td className="py-4 px-6 text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap">
                       {formatDate(p.published_at || p.created_at)}
                     </td>
                   </tr>
@@ -223,7 +229,7 @@ export const AdminDashboard = () => {
               <button
                 onClick={() => setInspectedUser(null)}
                 aria-label="Tutup inspeksi pengguna"
-                className="text-white/80 hover:text-white p-1 rounded-lg"
+                className="text-white/80 hover:text-white p-1 rounded-lg transition cursor-pointer"
               >
                 <IconX size={20} />
               </button>
@@ -231,10 +237,10 @@ export const AdminDashboard = () => {
 
             <div className="p-6 overflow-y-auto flex-1">
               {loadingUserPosts ? (
-                <div className="text-center py-8 text-gray-400 animate-pulse">Memuat artikel...</div>
+                <div className="text-center py-8 text-gray-500 animate-pulse">Memuat artikel...</div>
               ) : userPosts.length === 0 ? (
-                <div className="text-center py-8 text-gray-400">
-                  <IconFolder size={36} className="mx-auto mb-2" />
+                <div className="text-center py-8 text-gray-500">
+                  <IconFolder size={36} className="mx-auto mb-2 text-gray-400" />
                   <p>Pengguna ini belum menulis artikel apapun.</p>
                 </div>
               ) : (
@@ -243,7 +249,7 @@ export const AdminDashboard = () => {
                     <div key={p.id} className="py-3 flex items-center justify-between gap-4">
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{p.title}</h4>
-                        <div className="text-xs text-gray-500 flex items-center gap-2 mt-1">
+                        <div className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2 mt-1">
                           <span>{p.category}</span>
                           <span>•</span>
                           <span>{formatReadingTime(p.reading_time)}</span>
@@ -254,8 +260,8 @@ export const AdminDashboard = () => {
                       <span
                         className={`px-2 py-0.5 rounded text-xs font-bold ${
                           p.is_published
-                            ? 'bg-emerald-100 text-emerald-700'
-                            : 'bg-amber-100 text-amber-700'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : 'bg-amber-100 text-amber-800'
                         }`}
                       >
                         {p.is_published ? 'Terbit' : 'Draf'}
@@ -269,6 +275,7 @@ export const AdminDashboard = () => {
             <div className="bg-gray-50 dark:bg-gray-750 px-6 py-3 border-t border-gray-100 dark:border-gray-700 text-right shrink-0">
               <button
                 onClick={() => setInspectedUser(null)}
+                aria-label="Tutup jendela inspeksi artikel"
                 className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-300 transition cursor-pointer"
               >
                 Tutup

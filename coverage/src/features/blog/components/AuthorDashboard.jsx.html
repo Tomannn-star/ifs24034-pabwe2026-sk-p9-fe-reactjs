@@ -373,8 +373,13 @@
 <a name='L297'></a><a href='#L297'>297</a>
 <a name='L298'></a><a href='#L298'>298</a>
 <a name='L299'></a><a href='#L299'>299</a>
-<a name='L300'></a><a href='#L300'>300</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L300'></a><a href='#L300'>300</a>
+<a name='L301'></a><a href='#L301'>301</a>
+<a name='L302'></a><a href='#L302'>302</a>
+<a name='L303'></a><a href='#L303'>303</a>
+<a name='L304'></a><a href='#L304'>304</a>
+<a name='L305'></a><a href='#L305'>305</a>
+<a name='L306'></a><a href='#L306'>306</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -536,7 +541,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -634,7 +644,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -679,7 +691,6 @@ import {
   IconDotsVertical,
   IconEdit,
   IconTrash,
-  IconCheck,
   IconClock,
   IconFileText,
   IconFolder,
@@ -797,7 +808,7 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
           &lt;h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight"&gt;
             Ruang Kerja Penulis
           &lt;/h1&gt;
-          &lt;p className="text-sm text-gray-500 dark:text-gray-400 mt-1"&gt;
+          &lt;p className="text-sm text-gray-600 dark:text-gray-300 mt-1"&gt;
             Kelola publikasi naskah artikel blog Anda dan gunakan asisten AI terintegrasi search engine.
           &lt;/p&gt;
         &lt;/div&gt;
@@ -805,6 +816,7 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
         &lt;div className="flex items-center gap-3"&gt;
           &lt;button
             onClick={() =&gt; setIsAiModalOpen(true)}
+            aria-label="Buka AI Blog Generator"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-semibold text-sm hover:bg-indigo-100 transition shadow-xs cursor-pointer"
           &gt;
             &lt;IconSparkles size={18} /&gt;
@@ -813,6 +825,7 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
 &nbsp;
           &lt;button
             onClick={handleOpenNew}
+            aria-label="Tulis Artikel Baru"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-500/20 transition cursor-pointer"
           &gt;
             &lt;IconPlus size={18} /&gt;
@@ -833,9 +846,12 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
           &lt;/h2&gt;
 &nbsp;
           &lt;input
+            id="author-search-input"
+            name="author-search"
             type="text"
             value={searchQuery}
             onChange={(e) =&gt; setSearchQuery(e.target.value)}
+            aria-label="Cari artikel di ruang kerja"
             placeholder="Cari artikel di ruang kerja..."
             className="w-full sm:w-72 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none"
           /&gt;
@@ -844,23 +860,23 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
         {/* Table */}
         &lt;div className="overflow-x-auto"&gt;
           {loading ? (
-            &lt;div className="p-8 text-center text-gray-400 animate-pulse"&gt;Memuat data artikel...&lt;/div&gt;
+            &lt;div className="p-8 text-center text-gray-500 animate-pulse"&gt;Memuat data artikel...&lt;/div&gt;
           ) : filteredPosts.length === 0 ? (
-            &lt;div className="py-16 text-center text-gray-400 space-y-2"&gt;
-              &lt;IconFolder size={40} className="mx-auto text-gray-300 dark:text-gray-600" /&gt;
-              &lt;p className="font-medium text-gray-600 dark:text-gray-400"&gt;Belum ada artikel di ruang kerja&lt;/p&gt;
-              &lt;p className="text-xs text-gray-400"&gt;Mulailah menulis artikel pertama atau generate dengan AI!&lt;/p&gt;
+            &lt;div className="py-16 text-center text-gray-500 space-y-2"&gt;
+              &lt;IconFolder size={40} className="mx-auto text-gray-400 dark:text-gray-600" /&gt;
+              &lt;p className="font-medium text-gray-700 dark:text-gray-300"&gt;Belum ada artikel di ruang kerja&lt;/p&gt;
+              &lt;p className="text-xs text-gray-500 dark:text-gray-400"&gt;Mulailah menulis artikel pertama atau generate dengan AI!&lt;/p&gt;
             &lt;/div&gt;
           ) : (
             &lt;table className="w-full text-left border-collapse"&gt;
               &lt;thead&gt;
-                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
-                  &lt;th className="py-3.5 px-6"&gt;Judul Artikel&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Kategori&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Estimasi Baca&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Waktu Buat / Terbit&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4 text-center"&gt;Publikasi&lt;/th&gt;
-                  &lt;th className="py-3.5 px-6 text-right"&gt;Aksi&lt;/th&gt;
+                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
+                  &lt;th scope="col" className="py-3.5 px-6"&gt;Judul Artikel&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Kategori&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Estimasi Baca&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Waktu Buat / Terbit&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4 text-center"&gt;Publikasi&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-6 text-right"&gt;Aksi&lt;/th&gt;
                 &lt;/tr&gt;
               &lt;/thead&gt;
               &lt;tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm"&gt;
@@ -871,7 +887,7 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
                   &gt;
                     &lt;td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-xs sm:max-w-md truncate"&gt;
                       &lt;div className="truncate"&gt;{post.title}&lt;/div&gt;
-                      &lt;div className="text-xs text-gray-400 font-normal truncate mt-0.5"&gt;
+                      &lt;div className="text-xs text-gray-500 dark:text-gray-400 font-normal truncate mt-0.5"&gt;
                         /{post.slug}
                       &lt;/div&gt;
                     &lt;/td&gt;
@@ -882,14 +898,14 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
                       &lt;/span&gt;
                     &lt;/td&gt;
 &nbsp;
-                    &lt;td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs"&gt;
+                    &lt;td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs"&gt;
                       &lt;div className="flex items-center gap-1"&gt;
-                        &lt;IconClock size={14} className="text-gray-400" /&gt;
+                        &lt;IconClock size={14} className="text-gray-500" /&gt;
                         {formatReadingTime(post.reading_time)}
                       &lt;/div&gt;
                     &lt;/td&gt;
 &nbsp;
-                    &lt;td className="py-4 px-4 text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap"&gt;
+                    &lt;td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs whitespace-nowrap"&gt;
                       {formatDate(post.published_at || post.created_at)}
                     &lt;/td&gt;
 &nbsp;
@@ -900,13 +916,13 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
                         aria-label={`Toggle status artikel ${post.title}`}
                         className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
                           post.is_published
-                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
-                            : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
+                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                            : 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
                         }`}
                       &gt;
                         &lt;span
                           className={`w-2 h-2 rounded-full ${
-                            post.is_published ? 'bg-emerald-500' : 'bg-amber-500'
+                            post.is_published ? 'bg-emerald-600' : 'bg-amber-600'
                           }`}
                         /&gt;
                         &lt;span&gt;{post.is_published ? 'Terbit' : 'Draf'}&lt;/span&gt;
@@ -918,7 +934,7 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
                       &lt;button
                         onClick={() =&gt; setActiveMenuId(activeMenuId === post.id ? null : post.id)}
                         aria-label="Menu artikel"
-                        className="p-1.5 rounded-lg text-gray-500 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
+                        className="p-1.5 rounded-lg text-gray-600 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
                       &gt;
                         &lt;IconDotsVertical size={18} /&gt;
                       &lt;/button&gt;
@@ -927,14 +943,16 @@ export const AuthorDashboard = ({ isDark = false }) =&gt; {
                         &lt;div className="absolute right-6 mt-1 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 py-1.5 z-20"&gt;
                           &lt;button
                             onClick={() =&gt; handleOpenEdit(post)}
-                            className="w-full px-4 py-2 text-left text-xs text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
+                            aria-label={`Edit artikel ${post.title}`}
+                            className="w-full px-4 py-2 text-left text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
                           &gt;
                             &lt;IconEdit size={16} className="text-blue-600" /&gt;
                             &lt;span&gt;Edit Artikel&lt;/span&gt;
                           &lt;/button&gt;
                           &lt;button
                             onClick={() =&gt; handleDeletePost(post)}
-                            className="w-full px-4 py-2 text-left text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 flex items-center gap-2 cursor-pointer"
+                            aria-label={`Hapus artikel ${post.title}`}
+                            className="w-full px-4 py-2 text-left text-xs font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 flex items-center gap-2 cursor-pointer"
                           &gt;
                             &lt;IconTrash size={16} /&gt;
                             &lt;span&gt;Hapus&lt;/span&gt;
@@ -978,7 +996,7 @@ export default AuthorDashboard
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-11-19T02:33:12.990Z
+                at 2026-11-19T04:30:51.657Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

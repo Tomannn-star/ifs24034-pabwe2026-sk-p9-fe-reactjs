@@ -83,12 +83,13 @@ export const App = () => {
       if (!currentUser) {
         return (
           <div className="max-w-md mx-auto my-20 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl text-center space-y-4 border border-gray-100 dark:border-gray-700">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Akses Dibatasi</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Akses Dibatasi</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Anda harus masuk sebagai penulis untuk mengakses Ruang Kerja.
             </p>
             <button
               onClick={() => setIsAuthModalOpen(true)}
+              aria-label="Buka modal masuk akun"
               className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition cursor-pointer"
             >
               Masuk Sekarang
@@ -104,12 +105,13 @@ export const App = () => {
       if (!currentUser || currentUser.role !== 'admin') {
         return (
           <div className="max-w-md mx-auto my-20 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl text-center space-y-4 border border-gray-100 dark:border-gray-700">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Akses Ditolak</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Akses Ditolak</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Halaman ini hanya dapat diakses oleh administrator sistem.
             </p>
             <button
               onClick={() => navigate('/')}
+              aria-label="Kembali ke beranda utama"
               className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition cursor-pointer"
             >
               Kembali ke Beranda
@@ -150,7 +152,7 @@ export const App = () => {
       <main className="flex-1 w-full">{renderContent()}</main>
 
       {!isStandaloneAuth && (
-        <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8 text-center text-xs text-gray-500 dark:text-gray-400">
+        <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8 text-center text-xs text-gray-600 dark:text-gray-400">
           <p>© 2026 Delcom Blog. Praktikum 9 Pemrograman Berbasis Web &amp; Mobile.</p>
         </footer>
       )}

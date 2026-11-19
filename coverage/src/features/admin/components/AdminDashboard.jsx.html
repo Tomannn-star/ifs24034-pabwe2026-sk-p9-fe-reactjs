@@ -358,7 +358,14 @@
 <a name='L282'></a><a href='#L282'>282</a>
 <a name='L283'></a><a href='#L283'>283</a>
 <a name='L284'></a><a href='#L284'>284</a>
-<a name='L285'></a><a href='#L285'>285</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a>
+<a name='L287'></a><a href='#L287'>287</a>
+<a name='L288'></a><a href='#L288'>288</a>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -445,7 +452,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -531,7 +540,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -642,6 +655,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react'
 import {
   IconShieldCheck,
@@ -710,7 +724,7 @@ export const AdminDashboard = () =&gt; {
               Panel Administrasi Delcom
             &lt;/h1&gt;
           &lt;/div&gt;
-          &lt;p className="text-sm text-gray-500 dark:text-gray-400 mt-1"&gt;
+          &lt;p className="text-sm text-gray-600 dark:text-gray-300 mt-1"&gt;
             Monitoring menyeluruh aktivitas civitas penulis, naskah blog, dan data akun sistem.
           &lt;/p&gt;
         &lt;/div&gt;
@@ -719,10 +733,11 @@ export const AdminDashboard = () =&gt; {
         &lt;div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700"&gt;
           &lt;button
             onClick={() =&gt; setActiveTab('users')}
+            aria-label={`Daftar Pengguna (${users.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'users'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900'
             }`}
           &gt;
             &lt;IconUsers size={18} /&gt;
@@ -730,10 +745,11 @@ export const AdminDashboard = () =&gt; {
           &lt;/button&gt;
           &lt;button
             onClick={() =&gt; setActiveTab('posts')}
+            aria-label={`Arsip Seluruh Artikel (${posts.length})`}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
               activeTab === 'posts'
                 ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-xs'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900'
             }`}
           &gt;
             &lt;IconFiles size={18} /&gt;
@@ -745,19 +761,19 @@ export const AdminDashboard = () =&gt; {
       {/* Content Section */}
       &lt;div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-xs"&gt;
         {loading ? (
-          &lt;div className="p-12 text-center text-gray-400 animate-pulse"&gt;Memuat data sistem...&lt;/div&gt;
+          &lt;div className="p-12 text-center text-gray-500 animate-pulse"&gt;Memuat data sistem...&lt;/div&gt;
         ) : activeTab === 'users' ? (
           /* Users Table */
           &lt;div className="overflow-x-auto"&gt;
             &lt;table className="w-full text-left border-collapse"&gt;
               &lt;thead&gt;
-                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
-                  &lt;th className="py-3.5 px-6"&gt;Pengguna&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Email&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Role&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4 text-center"&gt;Total Artikel&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4 text-center"&gt;Artikel Terbit&lt;/th&gt;
-                  &lt;th className="py-3.5 px-6 text-right"&gt;Aksi&lt;/th&gt;
+                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
+                  &lt;th scope="col" className="py-3.5 px-6"&gt;Pengguna&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Email&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Role&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4 text-center"&gt;Total Artikel&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4 text-center"&gt;Artikel Terbit&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-6 text-right"&gt;Aksi&lt;/th&gt;
                 &lt;/tr&gt;
               &lt;/thead&gt;
               &lt;tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm"&gt;
@@ -765,9 +781,9 @@ export const AdminDashboard = () =&gt; {
                   &lt;tr key={u.id} className="hover:bg-gray-50/70 dark:hover:bg-gray-750 transition"&gt;
                     &lt;td className="py-4 px-6 font-semibold text-gray-900 dark:text-white"&gt;
                       &lt;div&gt;{u.name || u.username}&lt;/div&gt;
-                      &lt;div className="text-xs text-gray-400 font-normal"&gt;@{u.username}&lt;/div&gt;
+                      &lt;div className="text-xs text-gray-500 dark:text-gray-400 font-normal"&gt;@{u.username}&lt;/div&gt;
                     &lt;/td&gt;
-                    &lt;td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs"&gt;{u.email}&lt;/td&gt;
+                    &lt;td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs"&gt;{u.email}&lt;/td&gt;
                     &lt;td className="py-4 px-4"&gt;
                       &lt;span
                         className={`px-2.5 py-1 rounded-full text-xs font-bold ${
@@ -788,6 +804,7 @@ export const AdminDashboard = () =&gt; {
                     &lt;td className="py-4 px-6 text-right"&gt;
                       &lt;button
                         onClick={() =&gt; handleInspectUserPosts(u)}
+                        aria-label={`Lihat artikel pengguna ${u.username}`}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-200 transition cursor-pointer"
                       &gt;
                         &lt;IconEye size={14} /&gt;
@@ -804,36 +821,39 @@ export const AdminDashboard = () =&gt; {
           &lt;div className="overflow-x-auto"&gt;
             &lt;table className="w-full text-left border-collapse"&gt;
               &lt;thead&gt;
-                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
-                  &lt;th className="py-3.5 px-6"&gt;Judul Artikel&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Penulis&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Kategori&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4"&gt;Estimasi Baca&lt;/th&gt;
-                  &lt;th className="py-3.5 px-4 text-center"&gt;Status&lt;/th&gt;
-                  &lt;th className="py-3.5 px-6"&gt;Tanggal&lt;/th&gt;
+                &lt;tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700"&gt;
+                  &lt;th scope="col" className="py-3.5 px-6"&gt;Artikel&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Penulis&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Kategori&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4"&gt;Waktu Baca&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-4 text-center"&gt;Status&lt;/th&gt;
+                  &lt;th scope="col" className="py-3.5 px-6"&gt;Tanggal Publikasi&lt;/th&gt;
                 &lt;/tr&gt;
               &lt;/thead&gt;
               &lt;tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm"&gt;
                 {posts.map((p) =&gt; (
                   &lt;tr key={p.id} className="hover:bg-gray-50/70 dark:hover:bg-gray-750 transition"&gt;
-                    &lt;td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-sm truncate"&gt;
-                      &lt;div className="truncate"&gt;{p.title}&lt;/div&gt;
-                      &lt;div className="text-xs text-gray-400 font-normal truncate"&gt;/{p.slug}&lt;/div&gt;
+                    &lt;td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-xs truncate"&gt;
+                      &lt;div&gt;{p.title}&lt;/div&gt;
+                      &lt;div className="text-xs text-gray-500 dark:text-gray-400 font-normal truncate"&gt;/{p.slug}&lt;/div&gt;
                     &lt;/td&gt;
-                    &lt;td className="py-4 px-4 text-xs font-medium text-gray-700 dark:text-gray-300"&gt;
-                      {p.author_name || 'Penulis'}
+                    &lt;td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs font-medium"&gt;
+                      {p.author_name || 'Admin'}
                     &lt;/td&gt;
                     &lt;td className="py-4 px-4"&gt;
                       &lt;span className="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"&gt;
                         {p.category}
                       &lt;/span&gt;
                     &lt;/td&gt;
-                    &lt;td className="py-4 px-4 text-xs text-gray-600 dark:text-gray-400"&gt;
-                      {formatReadingTime(p.reading_time)}
+                    &lt;td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs"&gt;
+                      &lt;div className="flex items-center gap-1"&gt;
+                        &lt;IconClock size={14} className="text-gray-500" /&gt;
+                        {formatReadingTime(p.reading_time)}
+                      &lt;/div&gt;
                     &lt;/td&gt;
                     &lt;td className="py-4 px-4 text-center"&gt;
                       &lt;span
-                        className={`inline-flex px-2.5 py-1 rounded-full text-xs font-bold ${
+                        className={`px-2.5 py-1 rounded-full text-xs font-bold ${
                           p.is_published
                             ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
                             : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
@@ -842,7 +862,7 @@ export const AdminDashboard = () =&gt; {
                         {p.is_published ? 'Terbit' : 'Draf'}
                       &lt;/span&gt;
                     &lt;/td&gt;
-                    &lt;td className="py-4 px-6 text-xs text-gray-500 whitespace-nowrap"&gt;
+                    &lt;td className="py-4 px-6 text-xs text-gray-600 dark:text-gray-300 whitespace-nowrap"&gt;
                       {formatDate(p.published_at || p.created_at)}
                     &lt;/td&gt;
                   &lt;/tr&gt;
@@ -867,7 +887,7 @@ export const AdminDashboard = () =&gt; {
               &lt;button
                 onClick={() =&gt; setInspectedUser(null)}
                 aria-label="Tutup inspeksi pengguna"
-                className="text-white/80 hover:text-white p-1 rounded-lg"
+                className="text-white/80 hover:text-white p-1 rounded-lg transition cursor-pointer"
               &gt;
                 &lt;IconX size={20} /&gt;
               &lt;/button&gt;
@@ -875,10 +895,10 @@ export const AdminDashboard = () =&gt; {
 &nbsp;
             &lt;div className="p-6 overflow-y-auto flex-1"&gt;
               {loadingUserPosts ? (
-                &lt;div className="text-center py-8 text-gray-400 animate-pulse"&gt;Memuat artikel...&lt;/div&gt;
+                &lt;div className="text-center py-8 text-gray-500 animate-pulse"&gt;Memuat artikel...&lt;/div&gt;
               ) : userPosts.length === 0 ? (
-                &lt;div className="text-center py-8 text-gray-400"&gt;
-                  &lt;IconFolder size={36} className="mx-auto mb-2" /&gt;
+                &lt;div className="text-center py-8 text-gray-500"&gt;
+                  &lt;IconFolder size={36} className="mx-auto mb-2 text-gray-400" /&gt;
                   &lt;p&gt;Pengguna ini belum menulis artikel apapun.&lt;/p&gt;
                 &lt;/div&gt;
               ) : (
@@ -887,7 +907,7 @@ export const AdminDashboard = () =&gt; {
                     &lt;div key={p.id} className="py-3 flex items-center justify-between gap-4"&gt;
                       &lt;div&gt;
                         &lt;h4 className="font-semibold text-gray-900 dark:text-white text-sm"&gt;{p.title}&lt;/h4&gt;
-                        &lt;div className="text-xs text-gray-500 flex items-center gap-2 mt-1"&gt;
+                        &lt;div className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2 mt-1"&gt;
                           &lt;span&gt;{p.category}&lt;/span&gt;
                           &lt;span&gt;•&lt;/span&gt;
                           &lt;span&gt;{formatReadingTime(p.reading_time)}&lt;/span&gt;
@@ -898,8 +918,8 @@ export const AdminDashboard = () =&gt; {
                       &lt;span
                         className={`px-2 py-0.5 rounded text-xs font-bold ${
                           p.is_published
-                            ? 'bg-emerald-100 text-emerald-700'
-                            : 'bg-amber-100 text-amber-700'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : 'bg-amber-100 text-amber-800'
                         }`}
                       &gt;
                         {p.is_published ? 'Terbit' : 'Draf'}
@@ -913,6 +933,7 @@ export const AdminDashboard = () =&gt; {
             &lt;div className="bg-gray-50 dark:bg-gray-750 px-6 py-3 border-t border-gray-100 dark:border-gray-700 text-right shrink-0"&gt;
               &lt;button
                 onClick={() =&gt; setInspectedUser(null)}
+                aria-label="Tutup jendela inspeksi artikel"
                 className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-300 transition cursor-pointer"
               &gt;
                 Tutup
@@ -933,7 +954,7 @@ export default AdminDashboard
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-11-19T02:33:12.990Z
+                at 2026-11-19T04:30:51.657Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

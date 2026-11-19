@@ -5,7 +5,6 @@ import {
   IconDotsVertical,
   IconEdit,
   IconTrash,
-  IconCheck,
   IconClock,
   IconFileText,
   IconFolder,
@@ -123,7 +122,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Ruang Kerja Penulis
           </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
             Kelola publikasi naskah artikel blog Anda dan gunakan asisten AI terintegrasi search engine.
           </p>
         </div>
@@ -131,6 +130,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsAiModalOpen(true)}
+            aria-label="Buka AI Blog Generator"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-semibold text-sm hover:bg-indigo-100 transition shadow-xs cursor-pointer"
           >
             <IconSparkles size={18} />
@@ -139,6 +139,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
 
           <button
             onClick={handleOpenNew}
+            aria-label="Tulis Artikel Baru"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-500/20 transition cursor-pointer"
           >
             <IconPlus size={18} />
@@ -159,9 +160,12 @@ export const AuthorDashboard = ({ isDark = false }) => {
           </h2>
 
           <input
+            id="author-search-input"
+            name="author-search"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Cari artikel di ruang kerja"
             placeholder="Cari artikel di ruang kerja..."
             className="w-full sm:w-72 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 outline-none"
           />
@@ -170,23 +174,23 @@ export const AuthorDashboard = ({ isDark = false }) => {
         {/* Table */}
         <div className="overflow-x-auto">
           {loading ? (
-            <div className="p-8 text-center text-gray-400 animate-pulse">Memuat data artikel...</div>
+            <div className="p-8 text-center text-gray-500 animate-pulse">Memuat data artikel...</div>
           ) : filteredPosts.length === 0 ? (
-            <div className="py-16 text-center text-gray-400 space-y-2">
-              <IconFolder size={40} className="mx-auto text-gray-300 dark:text-gray-600" />
-              <p className="font-medium text-gray-600 dark:text-gray-400">Belum ada artikel di ruang kerja</p>
-              <p className="text-xs text-gray-400">Mulailah menulis artikel pertama atau generate dengan AI!</p>
+            <div className="py-16 text-center text-gray-500 space-y-2">
+              <IconFolder size={40} className="mx-auto text-gray-400 dark:text-gray-600" />
+              <p className="font-medium text-gray-700 dark:text-gray-300">Belum ada artikel di ruang kerja</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Mulailah menulis artikel pertama atau generate dengan AI!</p>
             </div>
           ) : (
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
-                  <th className="py-3.5 px-6">Judul Artikel</th>
-                  <th className="py-3.5 px-4">Kategori</th>
-                  <th className="py-3.5 px-4">Estimasi Baca</th>
-                  <th className="py-3.5 px-4">Waktu Buat / Terbit</th>
-                  <th className="py-3.5 px-4 text-center">Publikasi</th>
-                  <th className="py-3.5 px-6 text-right">Aksi</th>
+                <tr className="bg-gray-50 dark:bg-gray-900/50 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-700">
+                  <th scope="col" className="py-3.5 px-6">Judul Artikel</th>
+                  <th scope="col" className="py-3.5 px-4">Kategori</th>
+                  <th scope="col" className="py-3.5 px-4">Estimasi Baca</th>
+                  <th scope="col" className="py-3.5 px-4">Waktu Buat / Terbit</th>
+                  <th scope="col" className="py-3.5 px-4 text-center">Publikasi</th>
+                  <th scope="col" className="py-3.5 px-6 text-right">Aksi</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700/60 text-sm">
@@ -197,7 +201,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
                   >
                     <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white max-w-xs sm:max-w-md truncate">
                       <div className="truncate">{post.title}</div>
-                      <div className="text-xs text-gray-400 font-normal truncate mt-0.5">
+                      <div className="text-xs text-gray-500 dark:text-gray-400 font-normal truncate mt-0.5">
                         /{post.slug}
                       </div>
                     </td>
@@ -208,14 +212,14 @@ export const AuthorDashboard = ({ isDark = false }) => {
                       </span>
                     </td>
 
-                    <td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs">
+                    <td className="py-4 px-4 text-gray-700 dark:text-gray-300 text-xs">
                       <div className="flex items-center gap-1">
-                        <IconClock size={14} className="text-gray-400" />
+                        <IconClock size={14} className="text-gray-500" />
                         {formatReadingTime(post.reading_time)}
                       </div>
                     </td>
 
-                    <td className="py-4 px-4 text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap">
+                    <td className="py-4 px-4 text-gray-600 dark:text-gray-300 text-xs whitespace-nowrap">
                       {formatDate(post.published_at || post.created_at)}
                     </td>
 
@@ -226,13 +230,13 @@ export const AuthorDashboard = ({ isDark = false }) => {
                         aria-label={`Toggle status artikel ${post.title}`}
                         className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
                           post.is_published
-                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
-                            : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
+                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                            : 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
                         }`}
                       >
                         <span
                           className={`w-2 h-2 rounded-full ${
-                            post.is_published ? 'bg-emerald-500' : 'bg-amber-500'
+                            post.is_published ? 'bg-emerald-600' : 'bg-amber-600'
                           }`}
                         />
                         <span>{post.is_published ? 'Terbit' : 'Draf'}</span>
@@ -244,7 +248,7 @@ export const AuthorDashboard = ({ isDark = false }) => {
                       <button
                         onClick={() => setActiveMenuId(activeMenuId === post.id ? null : post.id)}
                         aria-label="Menu artikel"
-                        className="p-1.5 rounded-lg text-gray-500 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
+                        className="p-1.5 rounded-lg text-gray-600 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
                       >
                         <IconDotsVertical size={18} />
                       </button>
@@ -253,14 +257,16 @@ export const AuthorDashboard = ({ isDark = false }) => {
                         <div className="absolute right-6 mt-1 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 py-1.5 z-20">
                           <button
                             onClick={() => handleOpenEdit(post)}
-                            className="w-full px-4 py-2 text-left text-xs text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
+                            aria-label={`Edit artikel ${post.title}`}
+                            className="w-full px-4 py-2 text-left text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
                           >
                             <IconEdit size={16} className="text-blue-600" />
                             <span>Edit Artikel</span>
                           </button>
                           <button
                             onClick={() => handleDeletePost(post)}
-                            className="w-full px-4 py-2 text-left text-xs text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 flex items-center gap-2 cursor-pointer"
+                            aria-label={`Hapus artikel ${post.title}`}
+                            className="w-full px-4 py-2 text-left text-xs font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 flex items-center gap-2 cursor-pointer"
                           >
                             <IconTrash size={16} />
                             <span>Hapus</span>
