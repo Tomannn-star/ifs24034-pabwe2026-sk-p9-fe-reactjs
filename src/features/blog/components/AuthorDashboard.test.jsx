@@ -111,7 +111,7 @@ describe('AuthorDashboard', () => {
       expect(screen.getByText('Artikel Milik Saya')).toBeInTheDocument()
     })
 
-    fireEvent.click(screen.getByLabelText('Toggle status artikel Artikel Milik Saya'))
+    fireEvent.click(screen.getByText('Terbit'))
 
     await waitFor(() => {
       expect(blogApi.togglePublish).toHaveBeenCalledWith(1)
@@ -123,7 +123,7 @@ describe('AuthorDashboard', () => {
 
     // Toggle from draft to published
     blogApi.togglePublish.mockResolvedValueOnce({ data: { is_published: true } })
-    fireEvent.click(screen.getByLabelText('Toggle status artikel Artikel Draf Saya'))
+    fireEvent.click(screen.getAllByText('Draf')[0])
     await waitFor(() => {
       expect(toolsHelper.showSuccess).toHaveBeenCalledWith(
         'Status Berubah',
@@ -141,7 +141,7 @@ describe('AuthorDashboard', () => {
       expect(screen.getByText('Artikel Milik Saya')).toBeInTheDocument()
     })
 
-    fireEvent.click(screen.getByLabelText('Toggle status artikel Artikel Milik Saya'))
+    fireEvent.click(screen.getByText('Terbit'))
 
     await waitFor(() => {
       expect(toolsHelper.showError).toHaveBeenCalledWith('Gagal Mengubah Status', 'Gagal toggle status')

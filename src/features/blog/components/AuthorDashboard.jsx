@@ -172,9 +172,9 @@ export const AuthorDashboard = ({ isDark = false }) => {
         {/* Table */}
         <div className="overflow-x-auto">
           {loading ? (
-            <div className="p-8 text-center text-gray-500 dark:text-gray-400 animate-pulse">Memuat data artikel...</div>
+            <div className="p-8 text-center text-gray-500 dark:text-gray-400">Memuat data artikel...</div>
           ) : filteredPosts.length === 0 ? (
-            <div className="py-16 text-center text-gray-500 space-y-2">
+            <div className="py-16 text-center text-gray-500 dark:text-gray-400 space-y-2">
               <IconFolder size={40} className="mx-auto text-gray-400 dark:text-gray-600" />
               <p className="font-medium text-gray-700 dark:text-gray-300">Belum ada artikel di ruang kerja</p>
               <p className="text-xs text-gray-500 dark:text-gray-400">Mulailah menulis artikel pertama atau generate dengan AI!</p>
@@ -225,7 +225,6 @@ export const AuthorDashboard = ({ isDark = false }) => {
                     <td className="py-4 px-4 text-center">
                       <button
                         onClick={() => handleTogglePublish(post)}
-                        aria-label={`Toggle status artikel ${post.title}`}
                         className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
                           post.is_published
                             ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'

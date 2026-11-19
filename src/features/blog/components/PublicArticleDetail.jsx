@@ -32,7 +32,7 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) => {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse space-y-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-6">
         <h1 className="sr-only">Memuat Artikel</h1>
         <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-sm w-24" />
         <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-sm w-3/4" />
@@ -57,7 +57,6 @@ export const PublicArticleDetail = ({ slug, onBack, isDark = false }) => {
         </p>
         <button
           onClick={onBack}
-          aria-label="Kembali ke Daftar Artikel"
           className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition cursor-pointer"
         >
           <IconArrowLeft size={18} /> Kembali ke Daftar Artikel

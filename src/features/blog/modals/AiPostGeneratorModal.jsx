@@ -150,7 +150,6 @@ export const AiPostGeneratorModal = ({
             <button
               type="submit"
               disabled={loading}
-              aria-label="Generate Artikel AI"
               className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md shadow-indigo-500/20 transition cursor-pointer disabled:opacity-50"
             >
               {loading ? (

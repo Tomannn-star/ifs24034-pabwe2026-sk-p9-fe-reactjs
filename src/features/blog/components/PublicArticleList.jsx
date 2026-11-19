@@ -62,7 +62,7 @@ export const PublicArticleList = ({ searchQuery = '', onSelectArticle }) => {
             <div
               key={n}
               data-testid="article-skeleton"
-              className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 animate-pulse space-y-4"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 space-y-4"
             >
               <div className="h-44 bg-gray-200 dark:bg-gray-700 rounded-xl" />
               <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-sm w-1/3" />
